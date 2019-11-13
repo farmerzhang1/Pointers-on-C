@@ -2,3 +2,5 @@
 别人70行写完的我要写几百行还没写完（太懒惰），虽然一点技术含量都没有
 看看别人的啊
 学习一下好吗
+https://github.com/Stephan14/Pointers_On_C/blob/master/ch7/p6.c
+快去学习 你个沙雕
