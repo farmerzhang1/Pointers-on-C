@@ -1,0 +1,76 @@
+try1 assembly
+#include <stdio.h>
+#define SIZE  50 
+int  x[SIZE];
+int  y[SIZE];
+int  i;
+int *p1, *p2;
+
+void try1() {
+	00081760  push        ebp
+		00081761  mov         ebp, esp
+		00081763  sub         esp, 0C0h
+		00081769  push        ebx
+		0008176A  push        esi
+		0008176B  push        edi
+		0008176C  lea         edi, [ebp - 0C0h]
+		00081772  mov         ecx, 30h
+		00081777  mov         eax, 0CCCCCCCCh
+		0008177C  rep stos    dword ptr es : [edi]
+		0008177E  mov         ecx, offset _CEBB1F1E_try1@c (08C003h)
+		00081783  call        @__CheckForDebuggerJustMyCode@4 (081203h)
+		for (i = 0; i < SIZE; i++)
+			00081788  mov         dword ptr[_i(08A15Ch)], 0
+			00081792  jmp         try1 + 41h(0817A1h)
+			00081794  mov         eax, dword ptr[_i(08A15Ch)]
+			00081799  add         eax, 1
+			0008179C  mov         dword ptr[_i(08A15Ch)], eax
+			000817A1  cmp         dword ptr[_i(08A15Ch)], 32h
+			000817A8  jge         try1 + 65h(0817C5h)
+			x[i] = y[i];
+	000817AA  mov         eax, dword ptr[_i(08A15Ch)]
+		000817AF  mov         ecx, dword ptr[_i(08A15Ch)]
+		000817B5  mov         edx, dword ptr _y(08A500h)[ecx * 4]
+		000817BC  mov         dword ptr _x(08A5E0h)[eax * 4], edx
+		000817C3  jmp         try1 + 34h(081794h)
+}
+000817C5  pop         edi
+000817C6  pop         esi
+000817C7  pop         ebx
+000817C8  add         esp, 0C0h
+000817CE  cmp         ebp, esp
+000817D0  call        __RTC_CheckEsp(08120Dh)
+000817D5  mov         esp, ebp
+000817D7  pop         ebp
+000817D8  ret
+/***************************************************************************************/
+try5 assembly
+int main(void) {
+	00B61700  push        ebp
+		00B61701  mov         ebp, esp
+		00B61703  sub         esp, 0C0h
+		00B61709  push        ebx
+		00B6170A  push        esi
+		00B6170B  push        edi
+		00B6170C  lea         edi, [ebp - 0C0h]
+		00B61712  mov         ecx, 30h
+		00B61717  mov         eax, 0CCCCCCCCh
+		00B6171C  rep stos    dword ptr es : [edi]
+		00B6171E  mov         ecx, offset _CEBB1F1E_try1@c (0B6C003h)
+		00B61723  call        @__CheckForDebuggerJustMyCode@4 (0B61203h)
+		try5();
+	00B61728  call        _try5(0B61375h)
+		return 0;
+	00B6172D  xor         eax, eax
+}
+00B6172F  pop         edi
+00B61730  pop         esi
+00B61731  pop         ebx
+00B61732  add         esp, 0C0h
+00B61738  cmp         ebp, esp
+00B6173A  call        __RTC_CheckEsp(0B6120Dh)
+00B6173F  mov         esp, ebp
+00B61741  pop         ebp
+00B61742  ret
+至于为什么要传这个汇编
+大概是太闲了吧，而且汇编语言也是第一次见
